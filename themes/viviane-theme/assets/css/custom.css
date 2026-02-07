@@ -1,0 +1,706 @@
+/* ==========================================================================
+   VIVIANE BOUTIQUE - STYLES PERSONNALISES
+   Version 0 - Structure initiale
+   ========================================================================== */
+
+/* Variables CSS */
+:root {
+  --primary-color: #D4366B;
+  --secondary-color: #2C3E50;
+  --accent-color: #E8B298;
+  --yarn-color: #8E44AD;
+  --text-color: #333333;
+  --text-light: #666666;
+  --text-muted: #999999;
+  --light-gray: #F5F5F5;
+  --border-gray: #E0E0E0;
+  --white: #FFFFFF;
+  --success: #27AE60;
+  --warning: #F39C12;
+  --error: #E74C3C;
+  --info: #3498DB;
+}
+
+/* ==========================================================================
+   TYPOGRAPHIE
+   ========================================================================== */
+
+body {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: 600;
+}
+
+a {
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.header-banner {
+  background: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.header-nav {
+  background: var(--light-gray);
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.header-nav-left,
+.header-nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-right {
+  justify-content: flex-end;
+}
+
+.header-top {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.logo img {
+  max-height: 80px;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.main-menu {
+  background: var(--primary-color);
+  padding: 0;
+}
+
+.main-menu a {
+  color: white;
+  padding: 15px 20px;
+  display: inline-block;
+  transition: background 0.3s;
+  font-weight: 500;
+}
+
+.main-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Menu deroulant */
+.main-menu .dropdown-menu {
+  border: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   CATEGORIES - COULEURS SPECIFIQUES
+   ========================================================================== */
+
+.category-lingerie {
+  border-left: 4px solid var(--primary-color);
+}
+
+.category-pret-a-porter {
+  border-left: 4px solid var(--secondary-color);
+}
+
+.category-laine {
+  border-left: 4px solid var(--yarn-color);
+}
+
+.category-mercerie {
+  border-left: 4px solid var(--accent-color);
+}
+
+/* Banniere de categorie */
+.category-header {
+  padding: 40px 0;
+  margin-bottom: 30px;
+  background: var(--light-gray);
+  text-align: center;
+}
+
+.category-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.category-header .category-description {
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   CARTES PRODUITS
+   ========================================================================== */
+
+.product-miniature {
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 30px;
+  background: var(--white);
+}
+
+.product-miniature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-thumbnail img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.product-miniature:hover .product-thumbnail img {
+  transform: scale(1.05);
+}
+
+.product-description-box {
+  padding: 15px;
+}
+
+.product-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.product-title a {
+  color: var(--text-color);
+}
+
+.product-title a:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   BADGES PRODUITS
+   ========================================================================== */
+
+.product-flags {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.product-flag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.product-flag.discount {
+  background: var(--error);
+  color: white;
+}
+
+.product-flag.new {
+  background: var(--success);
+  color: white;
+}
+
+.product-flag.online-only {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ==========================================================================
+   PRIX
+   ========================================================================== */
+
+.product-price-and-shipping {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.regular-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.discount-percentage {
+  background: var(--error);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   BOUTONS
+   ========================================================================== */
+
+.btn-primary {
+  background: var(--primary-color);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #B82D5A;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #1A252F;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.add-to-cart {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   PAGE PRODUIT
+   ========================================================================== */
+
+.product-container {
+  padding: 20px 0;
+}
+
+.product-images {
+  margin-bottom: 20px;
+}
+
+.product-cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.product-thumbs img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.product-thumbs img:hover,
+.product-thumbs img.active {
+  border-color: var(--primary-color);
+}
+
+.product-description-short {
+  margin: 15px 0;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* Onglets produit */
+.product-tabs {
+  margin-top: 40px;
+}
+
+.product-tabs .nav-tabs {
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.product-tabs .nav-link {
+  color: var(--text-light);
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+}
+
+.product-tabs .nav-link.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+}
+
+/* ==========================================================================
+   GUIDE DES TAILLES (special lingerie)
+   ========================================================================== */
+
+.size-guide {
+  background: var(--light-gray);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.size-guide table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.size-guide th,
+.size-guide td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.size-guide th {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ==========================================================================
+   FILTRES (sidebar)
+   ========================================================================== */
+
+.facet-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+.facet-label {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.facet-label:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   PAGE D'ACCUEIL
+   ========================================================================== */
+
+.homepage-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.homepage-banner img {
+  width: 100%;
+  height: auto;
+}
+
+.homepage-categories {
+  padding: 40px 0;
+}
+
+.category-card {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 8px;
+  transition: all 0.3s;
+  background: var(--white);
+  border: 1px solid var(--border-gray);
+  margin-bottom: 20px;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.category-card h3 {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.category-card p {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* Section produits vedettes */
+.featured-products {
+  padding: 40px 0;
+}
+
+.featured-products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+/* ==========================================================================
+   PANIER
+   ========================================================================== */
+
+.cart-summary {
+  background: var(--light-gray);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.cart-summary .cart-total {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--primary-color);
+  border-top: 2px solid var(--border-gray);
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+  background: var(--secondary-color);
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: 60px;
+}
+
+footer h4 {
+  color: var(--white);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+footer a:hover {
+  opacity: 1;
+  color: white;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Newsletter */
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #B82D5A;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .header-top .row {
+    text-align: center;
+  }
+
+  .homepage-categories .col-md-3 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    max-height: 60px;
+  }
+
+  .product-price-and-shipping {
+    font-size: 20px;
+  }
+
+  .main-menu a {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .category-header h1 {
+    font-size: 24px;
+  }
+
+  .featured-products h2 {
+    font-size: 22px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 0 15px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .product-tabs .nav-link {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .product-miniature {
+    margin-bottom: 15px;
+  }
+
+  .cart-summary {
+    padding: 15px;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-entrance {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+/* ==========================================================================
+   UTILITAIRES
+   ========================================================================== */
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.bg-light {
+  background: var(--light-gray) !important;
+}
+
+.rounded {
+  border-radius: 8px !important;
+}
+
+.shadow {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}

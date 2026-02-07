@@ -1,0 +1,67 @@
+// ==========================================================================
+// VIVIANE BOUTIQUE - VARIABLES SCSS
+// ==========================================================================
+
+// Couleurs principales
+$primary-color: #D4366B;        // Rose élégant pour lingerie
+$secondary-color: #2C3E50;      // Bleu marine pour prêt-à-porter
+$accent-color: #E8B298;         // Beige/pêche pour mercerie
+$yarn-color: #8E44AD;           // Violet pour section laine
+
+// Couleurs de texte
+$text-color: #333333;
+$text-light: #666666;
+$text-muted: #999999;
+
+// Couleurs neutres
+$white: #FFFFFF;
+$light-gray: #F5F5F5;
+$border-gray: #E0E0E0;
+$dark-gray: #555555;
+
+// Couleurs de statut
+$success: #27AE60;
+$warning: #F39C12;
+$error: #E74C3C;
+$info: #3498DB;
+
+// Typographie
+$font-body: 'Montserrat', 'Arial', sans-serif;
+$font-heading: 'Playfair Display', 'Georgia', serif;
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+// Espacements
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 20px;
+$spacing-lg: 30px;
+$spacing-xl: 40px;
+$spacing-xxl: 60px;
+
+// Bordures
+$border-radius-sm: 4px;
+$border-radius: 8px;
+$border-radius-lg: 25px;
+
+// Ombres
+$shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+// Breakpoints (compatible Bootstrap 4)
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Header
+$header-height: 80px;
+$logo-max-height: 80px;
+$logo-max-height-mobile: 60px;
+
+// Transitions
+$transition-base: 0.3s ease;
+$transition-slow: 0.6s ease-out;

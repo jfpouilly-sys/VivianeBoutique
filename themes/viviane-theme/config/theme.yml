@@ -1,0 +1,43 @@
+name: Viviane Boutique Theme
+display_name: Viviane Boutique
+version: 1.0.0
+author:
+  name: "Claude Code"
+  email: "contact@viviane-boutique.com"
+  url: ""
+
+meta:
+  compatibility:
+    from: 8.0.0
+    to: ~
+  available: true
+
+assets:
+  use_parent_assets: false
+
+global_settings:
+  configuration:
+    PS_IMAGE_QUALITY: png
+    PS_JPEG_QUALITY: 90
+    PS_PNG_QUALITY: 7
+  hooks:
+    modules_to_hook:
+      displayNav:
+        - ps_customersignin
+        - ps_shoppingcart
+      displayTop:
+        - ps_mainmenu
+        - ps_searchbar
+      displayHome:
+        - ps_banner
+        - ps_featuredproducts
+      displayFooter:
+        - ps_emailsubscription
+        - ps_socialfollow
+
+theme_settings:
+  default_layout: layout-both-columns
+  layouts:
+    category: layout-left-column
+    product: layout-both-columns
+    cms: layout-both-columns
