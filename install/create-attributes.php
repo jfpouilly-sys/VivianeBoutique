@@ -3,11 +3,31 @@
  * Script de création des attributs pour Viviane Boutique
  * PrestaShop 8.1.x
  *
- * Exécuter ce script après l'installation de PrestaShop :
- * php install/create-attributes.php
+ * UTILISATION :
+ * 1. Copiez ce fichier dans le dossier racine de votre installation PrestaShop
+ *    Exemple : C:\xampp\htdocs\viviane-boutique\create-attributes.php
+ *
+ * 2. Exécutez depuis la ligne de commande :
+ *    cd C:\xampp\htdocs\viviane-boutique
+ *    D:\ProgramFiles\xampp\php\php.exe create-attributes.php
+ *
+ * Le script doit se trouver à côté du dossier /config/ de PrestaShop.
  */
 
-require_once dirname(__FILE__) . '/../config/config.inc.php';
+// Chemin vers le fichier de configuration PrestaShop
+$configPath = dirname(__FILE__) . '/config/config.inc.php';
+
+if (!file_exists($configPath)) {
+    echo "ERREUR : Fichier de configuration PrestaShop introuvable !\n";
+    echo "Chemin cherche : " . realpath(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.inc.php\n\n";
+    echo "SOLUTION :\n";
+    echo "1. Copiez ce fichier dans le dossier RACINE de votre installation PrestaShop\n";
+    echo "   (le meme dossier qui contient le sous-dossier 'config')\n";
+    echo "2. Puis executez : php create-attributes.php\n";
+    exit(1);
+}
+
+require_once $configPath;
 
 echo "=== Création des attributs Viviane Boutique ===\n\n";
 
