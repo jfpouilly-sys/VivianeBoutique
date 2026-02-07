@@ -92,6 +92,15 @@ du thème PrestaShop personnalisé, du module custom et de tous les fichiers de 
 - **windows11-prestashop-setup-guide.md** : Guide d'installation Windows 11 / XAMPP
 - **CHANGELOG.md** : Ce fichier de suivi des modifications
 
+### Corrigé
+
+#### Script SQL catégories (`install/categories-structure.sql`)
+- Ajout des instructions `CREATE TABLE IF NOT EXISTS` pour les 3 tables (ps_category, ps_category_lang, ps_category_shop)
+- Ajout des colonnes manquantes dans les INSERT : `id_shop_default`, `date_add`, `date_upd`
+- Ajout de `INSERT IGNORE` pour les catégories de base (Root id=1, Accueil id=2)
+- Script rendu **idempotent** : nettoyage automatique avant insertion pour éviter les doublons
+- Ajout de requêtes de vérification en fin de script (`SELECT COUNT(*)` et liste des catégories)
+
 ### Notes techniques
 - Compatible PrestaShop 8.0.0+
 - Design responsive (mobile-first)

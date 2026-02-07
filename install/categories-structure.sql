@@ -3,9 +3,9 @@
 -- Script d'installation pour PrestaShop 8.1.x
 -- ==========================================================================
 --
--- PREREQUIS : Ce script peut être utilisé de deux manières :
---   1. Sur une installation PrestaShop existante (les tables existent déjà)
---   2. En standalone (les tables seront créées automatiquement)
+-- Ce script est IDEMPOTENT : il peut être exécuté plusieurs fois sans
+-- créer de doublons. Il supprime d'abord les catégories Viviane existantes
+-- puis les recrée proprement.
 --
 -- IMPORTANT : Adapter les valeurs suivantes selon votre installation :
 --   - id_lang = 1 correspond généralement au français
@@ -55,6 +55,16 @@ CREATE TABLE IF NOT EXISTS `ps_category_shop` (
   `position` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_category`,`id_shop`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- =========================================
+-- NETTOYAGE : Supprimer les catégories Viviane existantes
+-- (conserve Racine id=1 et Accueil id=2)
+-- =========================================
+
+DELETE FROM ps_category_shop WHERE id_category > 2;
+DELETE FROM ps_category_lang WHERE id_category > 2;
+DELETE FROM ps_category WHERE id_category > 2;
+ALTER TABLE ps_category AUTO_INCREMENT = 3;
 
 -- =========================================
 -- Insertion de la catégorie racine et Accueil
@@ -427,3 +437,12 @@ SET @cat_id = LAST_INSERT_ID();
 INSERT INTO ps_category_lang (id_category, id_shop, id_lang, name, link_rewrite, meta_title)
 VALUES (@cat_id, 1, 1, 'Accessoires couture', 'accessoires-couture', 'Accessoires de couture');
 INSERT INTO ps_category_shop (id_category, id_shop, position) VALUES (@cat_id, 1, 6);
+
+-- =========================================
+-- VERIFICATION
+-- =========================================
+SELECT COUNT(*) AS 'Total categories creees' FROM ps_category;
+SELECT c.id_category, cl.name, c.id_parent, c.level_depth
+FROM ps_category c
+JOIN ps_category_lang cl ON c.id_category = cl.id_category
+ORDER BY c.id_category;
